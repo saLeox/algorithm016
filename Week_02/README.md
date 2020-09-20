@@ -4,7 +4,7 @@
 
 	哈希函数-映射得到下标
 
-		查询时间复杂度为O（1）
+	查询时间复杂度为O（1）
 
 	hashcode在java中需要重载
 		期望分布尽可能分散，不发生 哈希碰撞
@@ -25,9 +25,11 @@
 	树的遍历：前序(根左右)、中序(左根右, 升序的)、后续(左右根)
 		前后中是指根节点的次序
 		迭代 -- 手动维护栈实现
+
 			前序 -- 从顶点开始入栈，后继进栈元素及顺序：右节点 -> 左节点
 			中序 -- 前往最左侧节点，且依次存入左节点，左节点不存在时，输出栈顶元素，当前节点指向右节点，并存入栈
 			后续 -- 前往最左侧节点，且依次存入左节点，左节点不存在时，指向栈顶元素的右节点，并存入栈，不存在输出栈顶元素
+
 		广度优先通过队列实现 Queue<Node> queue = new LinkedList<Node>();
 		深度优先通过栈实现 Stack<Node> stack = new Stack<Node>();
 
@@ -57,6 +59,7 @@
 		insert 		O(logN) or O(1)
 
 	二叉堆
+	
 		通过完全二叉树实现
 		任意节点值>子节点值
 		通过数组实现
@@ -96,39 +99,39 @@
 
 常用API笔记：
 
-map.containsKey()
-map.get() -- 获得主键对应的值, 数组用[]取，注意区分
-map.values() -- 返回collection对象 作为参数传进array的构造函数，可不需要遍历map(更加简洁)
-map.get(key).add(str); value为集合时可以直接基于引用修改内容，不用put操作
-for (Map.Entry<Integer, Integer> entry : freq.entrySet()) {
-    xx = entry.getKey();
-    xx = entry.getValue();
-}
+	map.containsKey()
+	map.get() -- 获得主键对应的值, 数组用[]取，注意区分
+	map.values() -- 返回collection对象 作为参数传进array的构造函数，可不需要遍历map(更加简洁)
+	map.get(key).add(str); value为集合时可以直接基于引用修改内容，不用put操作
+	for (Map.Entry<Integer, Integer> entry : freq.entrySet()) {
+	    xx = entry.getKey();
+	    xx = entry.getValue();
+	}
 
-Arrays.sort() -- 数组快速排序，时间复杂度为 nlogn
-Arrays.equal() -- 判断两个数组是否相同
-List通过ArrayList初始化之后才能赋给List
+	Arrays.sort() -- 数组快速排序，时间复杂度为 nlogn
+	Arrays.equal() -- 判断两个数组是否相同
+	List通过ArrayList初始化之后才能赋给List
 
-Stack<Node> stack = new Stack<Node>();
-stack.push();
-stack.pop();
-stack.peek();
-stack.empty();
+	Stack<Node> stack = new Stack<Node>();
+	stack.push();
+	stack.pop();
+	stack.peek();
+	stack.empty();
 
-Queue<Node> queue = new LinkedList<Node>(); //LinkedList是Queue的一种实现
-queue.add();
-queue.addAll(); //加入集合
-queue.poll(); //返回首个元素
+	Queue<Node> queue = new LinkedList<Node>(); //LinkedList是Queue的一种实现
+	queue.add();
+	queue.addAll(); //加入集合
+	queue.poll(); //返回首个元素
 
-PriorityQueue<Integer> heap = new PriorityQueue<>((v1, v2) -> v1 - v2); //小根堆
-PriorityQueue<Integer> heap = new PriorityQueue<>((v1, v2) -> v2 - v1); //大根堆
-heap.poll();
-heap.add();
+	PriorityQueue<Integer> heap = new PriorityQueue<>((v1, v2) -> v1 - v2); //小根堆
+	PriorityQueue<Integer> heap = new PriorityQueue<>((v1, v2) -> v2 - v1); //大根堆
+	heap.poll();
+	heap.add();
 
-char[]和string相互转换
-	char[] arr = str.toCharArray();
-	return String.valueOf(arr);	
+	char[]和string相互转换
+		char[] arr = str.toCharArray();
+		return String.valueOf(arr);	
 
-int[] counter = new int[26];
-	初始化之后各位置初始值为0
-	counter[s.charAt(i) - 'a'] 通过相对值定位
+	int[] counter = new int[26];
+		初始化之后各位置初始值为0
+		counter[s.charAt(i) - 'a'] 通过相对值定位
