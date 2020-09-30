@@ -2,12 +2,11 @@
 
 1, 递归
 	参数至少包括两个 level 和 param
-
 		level表示进展程度的变量，可以不至一个，例如左右
 		param为体现递归处理的变量，归去来兮，来回传递，要从空开始，否则会挖坑
 
 	构成如下：
-
+	
 		A，终止函数 # recursion terminator
 		B，处理当前层的逻辑 # process logic in current level
 		C, 下探下一层 # drill down
@@ -21,11 +20,11 @@
 	B和C位置可以对调
 
 2, 分治/回溯
-
 	最优重复性 - 动态规划
 	最近重复性 - 分治/回溯
 
 分治:
+
 	# recursion terminator
 	# prepare data == process logic in current level
 	# conquer subproblems == drill down
@@ -33,6 +32,7 @@
 	# revert current level status
 	
 回溯：
+
 	试错思想, 分步解决问题, 错误则取消上一步或上几步的计算
 	越早判定并否定当前结果, 可以节省时间和次数
 	模板同普通递归
