@@ -38,8 +38,26 @@
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
+    // 贪心算法
     public int findContentChildren(int[] g, int[] s) {
-
+        int match = 0;
+        Arrays.sort(g);
+        Arrays.sort(s);
+        int glen = g.length - 1;
+        int slen = s.length - 1;
+        while (glen >= 0 && slen >= 0) {
+            // 匹配
+            if (g[glen] <= s[slen]) {
+                glen--;
+                slen--;
+                match++;
+            }
+            // 不匹配则轮到下一个小孩
+            else {
+                glen--;
+            }
+        }
+        return match;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

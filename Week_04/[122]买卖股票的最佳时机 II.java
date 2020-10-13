@@ -43,8 +43,39 @@
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
+    // 贪心算法：存在正的价格差则为有效交易
     public int maxProfit(int[] prices) {
-        
+        int profit = 0;
+        for (int i = 1; i < prices.length; i++) {
+            int tmp = prices[i] - prices[i-1];
+            if(tmp > 0) profit += tmp;
+        }
+        return profit;
+    }
+
+    // 贪心算法: 只要下一天比当天高 则买入, 低则买入
+    public int maxProfit1(int[] prices) {
+        int profit = 0;
+        Integer cur_share = null;
+        for (int i = 0; i < prices.length; i++) {
+            // sell first then sell
+            // sell out condition
+            if (i > 0 && cur_share != null) {
+                if (prices[i] > prices[i - 1] || i == prices.length - 1) {
+                    profit += prices[i] - cur_share;
+                    cur_share = null; //归零
+                    // System.out.println("sell at:" + prices[i]);
+                }
+            }
+            // buy in condition
+            if (i < prices.length - 1 && cur_share == null) {
+                if (prices[i + 1] > prices[i]) {
+                    cur_share = prices[i];
+                    // System.out.println("buy at:" + prices[i]);
+                }
+            }
+        }
+        return profit;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
